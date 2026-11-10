@@ -66,12 +66,11 @@ $Pids = @{}
 # 1. Start WeWIN Centre (Connector) on Port 8000
 Write-Host "[1/3] Starting WeWIN Centre on http://${BindAddress}:${PortCentre}..." -ForegroundColor Cyan
 $ConnectorDir = Join-Path $RepoRoot "connector"
-$ConnectorLog = Join-Path $LogDir "connector.log"
 $p1 = Start-Process -FilePath $VenvPython `
     -ArgumentList "-m", "uvicorn", "src.api.app:app", "--host", $BindAddress, "--port", "$PortCentre" `
     -WorkingDirectory $ConnectorDir `
-    -RedirectStandardOutput $ConnectorLog `
-    -RedirectStandardError $ConnectorLog `
+    -RedirectStandardOutput (Join-Path $LogDir "connector.log") `
+    -RedirectStandardError (Join-Path $LogDir "connector_err.log") `
     -PassThru -WindowStyle Hidden
 
 $Pids["connector"] = $p1.Id
@@ -80,12 +79,11 @@ Write-Host "      Centre running with PID: $($p1.Id)" -ForegroundColor Green
 # 2. Start WeWIN Education Portal on Port 8001
 Write-Host "[2/3] Starting WeWIN Education Portal on http://${BindAddress}:${PortPortal}..." -ForegroundColor Cyan
 $PortalDir = Join-Path $RepoRoot "portal"
-$PortalLog = Join-Path $LogDir "portal.log"
 $p2 = Start-Process -FilePath $VenvPython `
     -ArgumentList "-m", "uvicorn", "backend.app:app", "--host", $BindAddress, "--port", "$PortPortal" `
     -WorkingDirectory $PortalDir `
-    -RedirectStandardOutput $PortalLog `
-    -RedirectStandardError $PortalLog `
+    -RedirectStandardOutput (Join-Path $LogDir "portal.log") `
+    -RedirectStandardError (Join-Path $LogDir "portal_err.log") `
     -PassThru -WindowStyle Hidden
 
 $Pids["portal"] = $p2.Id
@@ -93,12 +91,11 @@ Write-Host "      Portal running with PID: $($p2.Id)" -ForegroundColor Green
 
 # 3. Start WeWIN AI Server on Port 8010
 Write-Host "[3/3] Starting WeWIN AI Server on http://${BindAddress}:${PortAi}..." -ForegroundColor Cyan
-$AiLog = Join-Path $LogDir "ai_server.log"
 $p3 = Start-Process -FilePath $VenvPython `
     -ArgumentList "-m", "uvicorn", "ai_server.app:app", "--host", $BindAddress, "--port", "$PortAi" `
     -WorkingDirectory $PortalDir `
-    -RedirectStandardOutput $AiLog `
-    -RedirectStandardError $AiLog `
+    -RedirectStandardOutput (Join-Path $LogDir "ai_server.log") `
+    -RedirectStandardError (Join-Path $LogDir "ai_server_err.log") `
     -PassThru -WindowStyle Hidden
 
 $Pids["ai_server"] = $p3.Id
