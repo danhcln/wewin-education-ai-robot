@@ -1,0 +1,12 @@
+[Unit]
+Description=WeWIN incremental schedule (ship disabled; approval required)
+
+[Timer]
+OnCalendar=*-*-* 08:00:00 Asia/Bangkok
+OnCalendar=*-*-* 20:00:00 Asia/Bangkok
+Persistent=true
+WakeSystem=false
+RandomizedDelaySec=30
+Unit=wewin-sync.service
+
+# Deliberately no [Install]: no automatic enablement during preparation.

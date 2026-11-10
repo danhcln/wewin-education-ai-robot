@@ -1,0 +1,2 @@
+# Optional Windows launcher only; backend dependencies remain unchanged.
+psutil>=7.0,<8.0

@@ -1,0 +1,30 @@
+[Unit]
+Description=WeWIN private FastAPI backend
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=wewin
+Group=wewin
+WorkingDirectory=/opt/wewin/current
+EnvironmentFile=/etc/wewin/server.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/wewin/venv/bin/python -m uvicorn src.api.app:app --host 127.0.0.1 --port 8000 --workers 1 --loop asyncio --http h11 --no-access-log
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=60
+UMask=0077
+StateDirectory=wewin
+StateDirectoryMode=0700
+RuntimeDirectory=wewin-api
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+ReadWritePaths=/var/lib/wewin
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

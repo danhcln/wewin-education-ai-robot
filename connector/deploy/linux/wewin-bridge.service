@@ -1,0 +1,30 @@
+[Unit]
+Description=WeWIN outbound XiaoZhi MCP bridge
+After=network-online.target wewin-api.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=wewin
+Group=wewin
+WorkingDirectory=/opt/wewin/current
+EnvironmentFile=/etc/wewin/server.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/wewin/venv/bin/python run_bridge.py
+Restart=always
+RestartSec=10
+TimeoutStopSec=30
+KillSignal=SIGINT
+UMask=0077
+StateDirectory=wewin
+StateDirectoryMode=0700
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+ReadWritePaths=/var/lib/wewin
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

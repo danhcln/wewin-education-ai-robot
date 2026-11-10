@@ -1,0 +1,161 @@
+{
+  "date": "2026-11-08",
+  "running_ai_code_commit": "b4318f0909fe51323d9bfdc68d063b5b395744dd",
+  "ai_source_sha256": "86a23fc15fa8ee6150931c8ff29ddac9480d69d322b68e7feb6d33f3b649a585",
+  "physical_robot_verified": false,
+  "tests": {
+    "ai_server": 27,
+    "portal": 40,
+    "chrome": 6,
+    "live_simulator_checks": 11,
+    "education_cases_per_model": 31,
+    "models": 3,
+    "tts_roundtrips": 8,
+    "source_recovery_rehearsal": "PASS, isolated 8012 only"
+  },
+  "tokenizers": {
+    "qwen3": {
+      "repo": "Qwen/Qwen3-4B",
+      "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "files": {
+        "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+      }
+    },
+    "qwen2.5": {
+      "repo": "Qwen/Qwen2.5-7B-Instruct",
+      "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "files": {
+        "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+        "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583"
+      }
+    }
+  },
+  "artifacts": [
+    {
+      "path": "artifacts/staging-hardening/restart-backup/restart-result.json",
+      "bytes": 861,
+      "sha256": "a7aa6a8a3032fc2adbe6ef25fe5f4fc7787308f09e300c5ee535b608691b020b"
+    },
+    {
+      "path": "artifacts/staging-hardening/restart-backup/launch-manifest.json",
+      "bytes": 1722,
+      "sha256": "2fafe9ac6c862f1b1abe3552b4a74bc06129bc6a8c0d77d2806e7074ba60ab97"
+    },
+    {
+      "path": "artifacts/staging-hardening/restart-backup/dependencies.txt",
+      "bytes": 834,
+      "sha256": "c58fe21dc71e0d0a7fd51110a4d5b4bdc6eb8a215c50d21fb3a73883d15eeb4c"
+    },
+    {
+      "path": "artifacts/staging-hardening/restart-backup/rollback-dependency-receipt.json",
+      "bytes": 186,
+      "sha256": "9c72d44c12f1d3bf887380dd67ecf1c676cd42b18bf120ce9afc1a4ed022e259"
+    },
+    {
+      "path": "artifacts/staging-hardening/service-tests-after-restart.log",
+      "bytes": 4189,
+      "sha256": "26f2583a2ffb523441b0028dd3fd5d90fdea224acf32addf2e6c802446e956df"
+    },
+    {
+      "path": "artifacts/staging-hardening/portal-tests-after-restart.log",
+      "bytes": 6049,
+      "sha256": "11dc687b43244e76f0c43660051d61cab4de2b836c357f7f6c4218e6fff52ad7"
+    },
+    {
+      "path": "artifacts/staging-hardening/frontend-build.log",
+      "bytes": 429,
+      "sha256": "7509a3db1cda268dbcbe42807f823db3020892d58a6bffc4127793dca2c42a8e"
+    },
+    {
+      "path": "artifacts/staging-hardening/post-restart/results.json",
+      "bytes": 948,
+      "sha256": "af244f42f45503cd7d5d8c13ae482d6fa7d041758eda61478035c88105f28f0e"
+    },
+    {
+      "path": "artifacts/staging-hardening/post-restart/teacher/result.json",
+      "bytes": 1364,
+      "sha256": "a87b16b63106fef16f02f7e2a9e7984901d8ddee7a4e8123eaead206b5092b37"
+    },
+    {
+      "path": "artifacts/staging-hardening/post-restart/mcp/result.json",
+      "bytes": 1387,
+      "sha256": "a7bedfb6e4cbff97edbaf2948586b7a6065b8225ec5225139c96f54ce6af60f3"
+    },
+    {
+      "path": "artifacts/staging-hardening/post-restart/consultant/result.json",
+      "bytes": 1573,
+      "sha256": "986e86331fa3fcd7ceed76a33d834d718141275c6a76768e6e62f9fdddede36d"
+    },
+    {
+      "path": "artifacts/staging-hardening/restart-refusal.log",
+      "bytes": 50,
+      "sha256": "1cbc0f55e5f829caa056577fd6f0167ea65647c741d02217ff9a8696a931ce30"
+    },
+    {
+      "path": "artifacts/staging-hardening/ui/results.json",
+      "bytes": 1313,
+      "sha256": "934bcbff356699d9b5be68a260812a48e244d76945d4d22260f5e7d386fa029e"
+    },
+    {
+      "path": "artifacts/staging-hardening/ui/qa-server-verified.png",
+      "bytes": 359995,
+      "sha256": "f43f57ad2e9a76cff0560fa24b81806f04977cebd1d8fdba0357ccf596881410"
+    },
+    {
+      "path": "artifacts/staging-hardening/ui/qa-readback-error.png",
+      "bytes": 146368,
+      "sha256": "bc3dc6cc52624485364b6a96226ce33e130748c1226234ea33e3ab1aea0e201e"
+    },
+    {
+      "path": "artifacts/staging-hardening/education/hardened-qwen3-4b.json",
+      "bytes": 55894,
+      "sha256": "d727abc1ffddc67b24bb81cf4f1107f2788c99e9311f00e77cb5dbad49551ac2"
+    },
+    {
+      "path": "artifacts/staging-hardening/education/hardened-qwen3-8b.json",
+      "bytes": 54079,
+      "sha256": "4c7f1fc260945d368f7f96a751112109d69ed621ac2d44ec2146b9e19aa08594"
+    },
+    {
+      "path": "artifacts/staging-hardening/education/hardened-qwen2.5-7b.json",
+      "bytes": 55295,
+      "sha256": "157172567a51cb912876a3fcffa2787138e75428b8d119d25b0bae3d530a66c9"
+    },
+    {
+      "path": "artifacts/staging-hardening/education/ablation-legacy-qwen3-4b.json",
+      "bytes": 10218,
+      "sha256": "f514780378341d4d5c0ca7719e6091bcae2933bd9df7cf9667340eeb3eaa7f31"
+    },
+    {
+      "path": "artifacts/staging-hardening/education/ablation-translation_fix-qwen3-4b.json",
+      "bytes": 10364,
+      "sha256": "4e4c20064e106df272cb6cbeccd82306cad4ef74f5f968b5c5279b1fb29114de"
+    },
+    {
+      "path": "artifacts/staging-hardening/education/tts/results.json",
+      "bytes": 5758,
+      "sha256": "424ec2daada69666264c9e7c9262f3a06618883af0f869db59115326e6aadd90"
+    },
+    {
+      "path": "artifacts/staging-hardening/factory/xrefs.json",
+      "bytes": 41868,
+      "sha256": "f5a85aa78c92c5acab69cd089a24ce3c8c8b49454842bd7e1d922a1953151186"
+    },
+    {
+      "path": "artifacts/staging-hardening/factory/hello-constants.json",
+      "bytes": 581,
+      "sha256": "544ef6bd99148909a341c5ce82ab4e6ce8effd777bdec41a523a07ebcdd81b41"
+    },
+    {
+      "path": "artifacts/staging-hardening/rollback-rehearsal-2/results.json",
+      "bytes": 555,
+      "sha256": "312cbdb736e3f1b8ea2d0d53ef3d1866152ad39ea3315f7b70e4c4d5d075fd0f"
+    },
+    {
+      "path": "artifacts/staging-hardening/protection-final.json",
+      "bytes": 2971,
+      "sha256": "f963d5637ba2ff9dd6c758ea1f41de7e62aad0ac12247ddad24eac26d8b673ac"
+    }
+  ]
+}

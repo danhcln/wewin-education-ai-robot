@@ -1,0 +1,51 @@
+{
+  "suite": "education_eval_cases.json version 1, 31 synthetic cases per model",
+  "reviewer": "Codex transcript review, not a teacher panel or human audio listening",
+  "criterion": "Answer must perform the requested task and contain no false teaching rule or unsupported institutional claim; lexical matches alone are insufficient",
+  "education_accepted": false,
+  "candidate_for_further_validation": "qwen3:8b, best of these three in this diagnostic only, not approved for production or unsupervised education",
+  "results": [
+    {
+      "model": "qwen3:4b", "semantic_pass": 20, "total": 31,
+      "heuristic_pass": 26, "echo_attempts_blocked": 1,
+      "failures": {
+        "vocab_apple": "Defines apple as generic fruit and gives a contradictory apple example; lexical táo hit is not semantic PASS",
+        "vocab_banana": "Does not teach the requested Vietnamese vocabulary chuối",
+        "translate_question": "Translates school bag as school, losing the object",
+        "grammar_she": "Says to use base like with She, contradicting the correct example",
+        "grammar_plural": "Says child plural is formed by adding en, a false rule",
+        "grammar_an": "Invents a rule involving the /n/ sound and gives an incorrect pronunciation",
+        "correct_go": "Correct example but teaches verb+s for go without its required es form; misleading explanation",
+        "correct_be": "Changes They to He instead of correcting agreement",
+        "correct_age": "Correct example but explanation denies year as an English word",
+        "wewin_courses": "Counts fee/schedule policy as a third course",
+        "wewin_ielts": "Exact question echo rejected by the new guard; no useful answer"
+      }
+    },
+    {
+      "model": "qwen3:8b", "semantic_pass": 27, "total": 31,
+      "heuristic_pass": 29, "echo_attempts_blocked": 0,
+      "failures": {
+        "vocab_banana": "Describes fruit shape/color but does not teach the Vietnamese word chuối",
+        "translate_question": "School bag becomes a generic handbag; incomplete translation",
+        "grammar_plural": "Correct children but false child+en explanation",
+        "correct_go": "Says add s to go; the example is correct but the explicit rule should account for es"
+      },
+      "heuristic_false_negative": {"hint_first":"Valid first hint without giving goes; not required to repeat the keyword She"}
+    },
+    {
+      "model": "qwen2.5:7b", "semantic_pass": 24, "total": 31,
+      "heuristic_pass": 26, "echo_attempts_blocked": 0,
+      "failures": {
+        "translate_question": "Changes Where is my school bag into Why can you not find it",
+        "grammar_she": "Explains verb s by feminine gender instead of third-person singular",
+        "grammar_an": "Correct vowel-sound condition but calls an a counting word/numeral",
+        "grammar_past": "Answers with the history of chess instead of past tense went",
+        "correct_age": "Translates to Vietnamese instead of correcting the English sentence",
+        "hint_first": "Suggests the unchanged go for She, misleading the learner",
+        "wewin_courses": "Adds unsupported many other courses beyond the retrieved course facts"
+      },
+      "heuristic_false_negative": {"a2_past":"Last Saturday is an acceptable question about last weekend"}
+    }
+  ]
+}

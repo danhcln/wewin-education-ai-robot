@@ -1,0 +1,26 @@
+[Unit]
+Description=WeWIN bounded incremental batch (requires explicit arming)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=wewin
+Group=wewin
+WorkingDirectory=/opt/wewin/current
+EnvironmentFile=/etc/wewin/server.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/wewin/venv/bin/python run_sync.py --execute --trigger systemd --batch-size 20
+TimeoutStartSec=infinity
+TimeoutStopSec=120
+KillSignal=SIGTERM
+UMask=0077
+StateDirectory=wewin
+StateDirectoryMode=0700
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+ReadWritePaths=/var/lib/wewin
+StandardOutput=journal
+StandardError=journal

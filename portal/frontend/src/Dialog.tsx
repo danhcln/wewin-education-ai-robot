@@ -1,0 +1,6 @@
+import {useEffect,useRef} from 'react'
+export function Dialog({titleId,onClose,children}:{titleId:string;onClose:()=>void;children:React.ReactNode}){
+ const ref=useRef<HTMLElement>(null)
+ useEffect(()=>{const previous=document.activeElement as HTMLElement|null;const overflow=document.body.style.overflow;document.body.style.overflow='hidden';ref.current?.focus();return()=>{document.body.style.overflow=overflow;if(previous?.isConnected)previous.focus()}},[])
+ return <div className="modal-shade"><section className="modal-panel" ref={ref} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby={titleId} onKeyDown={e=>{if(e.key==='Escape'){e.preventDefault();onClose()}if(e.key==='Tab'){const items=Array.from(ref.current?.querySelectorAll<HTMLElement>('button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),a[href]')||[]).filter(el=>el.offsetParent!==null);if(!items.length){e.preventDefault();return}const first=items[0],last=items[items.length-1];if(e.shiftKey&&(document.activeElement===first||document.activeElement===ref.current)){e.preventDefault();last.focus()}else if(!e.shiftKey&&(document.activeElement===last||document.activeElement===ref.current)){e.preventDefault();first.focus()}}}}>{children}</section></div>
+}

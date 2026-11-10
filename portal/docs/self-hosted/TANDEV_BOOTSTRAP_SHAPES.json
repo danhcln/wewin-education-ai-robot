@@ -1,0 +1,28 @@
+{
+  "status": "SCHEMA_TEMPLATES_ONLY_NOT_DEPLOYABLE",
+  "physical_enabled": false,
+  "identity": "Synthetic placeholders; no Monster Desk identity or real credential",
+  "selection": "Choose after runtime/recovery approval; MQTT object wins over WS, no proven automatic WS fallback after MQTT failure",
+  "mqtt_only": {
+    "mqtt": {
+      "endpoint": "gateway.wewin-staging.invalid:8883",
+      "client_id": "synthetic-client-only",
+      "username": "synthetic-device-only",
+      "password": "ISSUED_BY_WEWIN_ONLY_AFTER_APPROVED_PROVISIONING",
+      "publish_topic": "wewin/devices/synthetic-device-only/up",
+      "keepalive": 60
+    }
+  },
+  "websocket_only": {
+    "websocket": {
+      "url": "wss://gateway.wewin-staging.invalid:8014/xiaozhi/v1/",
+      "token": "ISSUED_BY_WEWIN_ONLY_AFTER_APPROVED_PROVISIONING",
+      "version": 1
+    }
+  },
+  "server_time": "Generate current UTC epoch milliseconds; verify original timezone_offset handling and TLS clock before real deployment",
+  "firmware_delivery": false,
+  "vendor_activation_emulated": false,
+  "recovery_verified": false,
+  "certificate": "Owned routable DNS + complete chain anchored in exact firmware active trust bundle; private test CA is not robot trust proof"
+}

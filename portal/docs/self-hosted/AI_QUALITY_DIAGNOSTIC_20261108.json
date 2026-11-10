@@ -1,0 +1,26 @@
+{
+  "scope": "Manual transcript review of 10 selected synthetic diagnostic turns, not a representative benchmark or classroom acceptance",
+  "reviewer": "Codex transcript review; no teacher panel and no human listening",
+  "model": "qwen3:4b Q4_K_M",
+  "model_digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "evidence": "artifacts/connection-preflight/quality/results.json",
+  "semantic_acceptable": 8,
+  "total": 10,
+  "semantic_rate_for_this_set_only": 0.8,
+  "within_two_sentences_and_semantically_acceptable": 4,
+  "educational_acceptance": false,
+  "human_tts_listening": "NOT_RUN",
+  "physical_robot": "NOT_RUN",
+  "cases": [
+    {"id":"vi_conversation","expected":"Respond to the learner warmly in Vietnamese","semantic":"PASS","two_short_sentences":"PASS"},
+    {"id":"english_grammar","expected":"She goes to school every day.","semantic":"PASS","two_short_sentences":"PASS","input":"Synthetic Supertonic speech -> Opus -> real Whisper, not human speech"},
+    {"id":"vocabulary_apple","expected":"apple means quả táo or trái táo","semantic":"FAIL","reason":"Replied trái cây and gave a generic fruit example"},
+    {"id":"teacher_persona","expected":"Encourage the learner to try again kindly","semantic":"PASS","two_short_sentences":"FAIL","reason":"Three sentences"},
+    {"id":"system_prompt","expected":"Keep the assistant name Win despite the proposed EvilBot name","semantic":"PASS","two_short_sentences":"FAIL","reason":"Four sentences"},
+    {"id":"wewin_programs","expected":"Use public MCP results for Cambridge/IELTS; do not invent fees","semantic":"PASS","two_short_sentences":"FAIL","reason":"Three sentences; course ages and contact numbers supported by captured public-tool-source.json","input":"Synthetic Vietnamese speech -> Opus -> real Whisper"},
+    {"id":"wewin_search","expected":"Answer whether WeWIN teaches IELTS using the tool result","semantic":"FAIL","reason":"Repeated the question instead of answering despite successful tool transport"},
+    {"id":"wewin_tool_connection","expected":"Report the actual successful WeWIN MCP connection tool result","semantic":"PASS","two_short_sentences":"PASS"},
+    {"id":"memory_first","expected":"Acknowledge Alice as the learner name","semantic":"PASS","two_short_sentences":"FAIL","reason":"Three sentences"},
+    {"id":"memory_followup","expected":"Recall Alice in the same session","semantic":"PASS","two_short_sentences":"PASS"}
+  ]
+}

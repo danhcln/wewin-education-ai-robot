@@ -1,0 +1,121 @@
+# ==============================================================================
+# WeWIN Education AI Robot Platform - Production .gitignore
+# ==============================================================================
+
+# 1. Environment & Secret Configuration
+.env
+.env.local
+.env.*.local
+.env.staging
+.env.production
+.secrets/
+*.secrets/
+*.key
+*.pem
+*.token
+*.cert
+*.pfx
+*.crt
+.wewin_pids.json
+
+# Whitelist safe documentation examples
+!.env.example
+!.env.education.example
+
+# 2. Production & Runtime Databases
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.sqlite3-journal
+*.lock
+*.lock.guard
+
+# Whitelist sanitized offline demo/test fixtures
+!portal/tests/fixtures/fixture_browser_sessions.sqlite3
+
+# 3. Python Artifacts & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.venv*/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 4. Node.js & Web Frontend
+node_modules/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.turbo
+.next
+.nuxt
+
+# Frontend production builds (built locally via npm run build)
+portal/frontend/dist/
+connector/frontend/dist/
+
+# 5. Heavy AI Model Blobs & Binaries (Exclude large GGUF/Whisper weights)
+*.gguf
+*.bin
+!portal/tests/fixtures/*.bin
+*.safetensors
+*.onnx
+*.pt
+*.pth
+*.tflite
+*.weights
+*.elf
+*.map
+
+# 6. Audio Recordings & Media Cache
+*.wav
+*.mp3
+*.opus
+*.m4a
+*.aac
+*.flac
+*.ogg
+
+# 7. Diagnostic Dumps, Maintenance & Logs
+logs/
+*.log
+artifacts/
+.maintenance/
+*.dump
+*.raw
+*.pcap
+
+# 8. OS & Editor Artifacts
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
